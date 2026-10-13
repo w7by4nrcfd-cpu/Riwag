@@ -1,11 +1,26 @@
 {
-  "_note": "Fictional sample company. Copy this folder to clients/<company-slug>/ and edit. Leave contact values null until the company provides real ones.",
+  "_note": "Fictional sample company. Copy this folder to clients/<company-slug>/ and edit. Without contact.whatsapp the preview uses the demo WhatsApp number from src/config.js; set the company's number only with its approval.",
   "name": "المثال",
   "englishName": "AL-MITHAL",
   "descriptor": "للديكور والمقاولات",
   "description": "معاينة مقترحة لموقع شركة ديكور ومقاولات، بتصورات تصميمية وطلب تسعيرة تفاعلي.",
-  "theme": { "charcoal": "#1f2b27", "ivory": "#f3f1ec", "sand": "#cfc5ae", "bronze": "#8a6a3b", "stone": "#5e665f" },
-  "contact": { "whatsapp": null, "phone": null, "email": null, "address": "المملكة العربية السعودية", "city": "", "hours": "تُضاف أوقات العمل الفعلية" },
-  "serviceAreas": ["المدينة الأولى", "المدينة الثانية"],
+  "theme": {
+    "charcoal": "#1f2b27",
+    "ivory": "#f3f1ec",
+    "sand": "#cfc5ae",
+    "bronze": "#8a6a3b",
+    "stone": "#5e665f"
+  },
+  "contact": {
+    "phone": null,
+    "email": null,
+    "address": "المملكة العربية السعودية",
+    "city": "",
+    "hours": "تُضاف أوقات العمل الفعلية"
+  },
+  "serviceAreas": [
+    "المدينة الأولى",
+    "المدينة الثانية"
+  ],
   "social": []
 }

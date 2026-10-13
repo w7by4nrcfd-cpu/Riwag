@@ -7,7 +7,8 @@ export const site = {
   origin: '',
   demo: true,
   // Leave null until an actual company authorizes its contact details. Saudi format: 9665XXXXXXXX.
-  contact: { whatsapp: null, phone: null, email: null, address: 'المملكة العربية السعودية — عنوان تجريبي', city: 'الرياض', hours: 'تُحدد أوقات العمل عند تخصيص الموقع' },
+  contact: { whatsapp: '966503114578', // demo: requests reach the site owner's WhatsApp during client presentations
+  phone: null, email: null, address: 'المملكة العربية السعودية — عنوان تجريبي', city: 'الرياض', hours: 'تُحدد أوقات العمل عند تخصيص الموقع' },
   serviceAreas: ['الرياض', 'جدة', 'الدمام', 'الخبر', 'أبها'],
   social: [],
   theme: { charcoal: '#242622', ivory: '#f5f2eb', sand: '#d7cbb9', bronze: '#80694e', stone: '#6b6b62' },
