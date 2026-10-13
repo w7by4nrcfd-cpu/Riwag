@@ -42,7 +42,13 @@
 
 لا تغيّر `demo: false` إلا بعد استبدال الهوية والصور والمشاريع ببيانات شركة حقيقية موافق عليها (انظر `CUSTOMIZATION.md`). عند `demo:false` ووجود `origin` يُكتب `robots.txt` يسمح بالفهرسة ويشير إلى sitemap، وتُزال ترويسة `X-Robots-Tag`.
 
+## GitHub Pages (المفعّل حاليًا)
+
+ملف `.github/workflows/pages.yml` يبني الموقع ويشغّل الاختبارات ثم ينشره عند كل دفع إلى `main` على:
+`https://w7by4nrcfd-cpu.github.io/Riwag/`
+
+البناء هناك يستخدم `BASE_PATH=/Riwag` لأن الموقع داخل مجلد فرعي. GitHub Pages لا يطبق `_headers`، لكن وسم noindex داخل الصفحات يبقى فعالًا. لإيقاف النشر: Settings ← Pages ← Unpublish، أو احذف ملف الـworkflow.
+
 ## بدائل
 
 - **Netlify (Drop)**: يدعم `_headers` و`404.html` بالطريقة نفسها تقريبًا؛ الرفع بسحب مجلد من متصفح حاسوب.
-- **GitHub Pages**: يعمل فقط عند النشر على جذر نطاق (مستخدم أو نطاق مخصص)، لأن المسارات مطلقة `/assets/...`. لا يقرأ `_headers`، فلا تُطبق ترويسات الأمان.
