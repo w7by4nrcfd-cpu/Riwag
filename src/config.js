@@ -2,7 +2,9 @@ export const site = {
   name: 'رِواق', englishName: 'RIWAQ', descriptor: 'للتصميم والتشطيبات الداخلية', logo: null,
   title: 'رِواق — مساحات تُشبهك',
   description: 'نموذج مستقل لتجربة تصميم وتشطيبات داخلية سعودية، مع تصورات للمجالس والفلل وطلب تسعيرة تفاعلي.',
-  origin: 'https://riwaq-interior-studio.idbri.chatgpt.site',
+  // Final public domain, e.g. 'https://example.com' (no trailing slash). Leave empty until the domain is approved;
+  // canonical/og:url/sitemap are then omitted. It can also be set at build time: SITE_ORIGIN=https://example.com npm run build
+  origin: '',
   demo: true,
   // Leave null until an actual company authorizes its contact details. Saudi format: 9665XXXXXXXX.
   contact: { whatsapp: null, phone: null, email: null, address: 'المملكة العربية السعودية — عنوان تجريبي', city: 'الرياض', hours: 'تُحدد أوقات العمل عند تخصيص الموقع' },

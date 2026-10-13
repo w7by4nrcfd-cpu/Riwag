@@ -5,7 +5,9 @@
   "type": "module",
   "scripts": {
     "build": "node scripts/build.mjs",
-    "test": "node --test tests/*.test.mjs"
+    "test": "node --test tests/*.test.mjs",
+    "serve": "node scripts/serve.mjs dist 8080",
+    "test:browser": "node tests/browser/audit.mjs http://localhost:8080 qa-shots docs/routes.json && node tests/browser/interactions.mjs http://localhost:8080 qa-shots"
   },
   "engines": {
     "node": ">=20"

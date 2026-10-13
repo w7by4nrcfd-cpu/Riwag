@@ -3,7 +3,7 @@ from pathlib import Path
 from PIL import Image
 
 root = Path(__file__).resolve().parent.parent
-target = root / 'dist' / 'assets'
+target = root / 'public' / 'assets'
 target.mkdir(parents=True, exist_ok=True)
 for source in (root / 'source-assets').glob('*.png'):
     image = Image.open(source).convert('RGB')

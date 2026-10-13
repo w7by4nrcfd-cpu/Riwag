@@ -1,57 +1,340 @@
-npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
 
 > interior-fitout-starter@1.0.0 test
 > node --test tests/*.test.mjs
 
-✔ Arabic and Persian numerals normalize accurately (1.724937ms)
-✔ Saudi phone formats and Arabic numerals accepted (0.398597ms)
-✔ Incorrect phone lengths, prefixes and injection rejected (0.140091ms)
-✔ Complete quote passes step 0 (0.938324ms)
-✔ Complete quote passes step 1 (0.17457ms)
-✔ Complete quote passes step 2 (0.174149ms)
-✔ Service and property must belong to configured options (0.203268ms)
-✔ Unknown city can be entered without forcing sample service areas (0.190378ms)
-✔ Invalid area boundaries, infinity and missing input rejected (0.234978ms)
-✔ Decimal, Arabic area and boundary 100000 accepted (0.347584ms)
-✔ Consent, email and short descriptions have independent errors (0.272842ms)
-✔ Optional email and budget are not required (0.115798ms)
-✔ Attachment limits enforce count, MIME, suffix and total size (0.343811ms)
-✔ WhatsApp is unavailable until configured correctly (0.167475ms)
-✔ Quote export discloses sending limits and attachment filenames (0.212067ms)
-✔ ZIP exports real attachment bytes, valid CRC and Arabic filenames (88.753751ms)
-✔ Project categories update actual DOM visibility and button state (29.323001ms)
-✔ Mobile navigation opens, closes with Escape and resets on desktop resize (9.228654ms)
-✔ Material tabs change panel content and support RTL arrow keys (11.342246ms)
-✔ Before-after range updates clip position and accessible value (17.288292ms)
-✔ Project lightbox cycles correctly and closes without leaving scroll locked (8.403938ms)
-✔ Wizard rejects empty data, preserves edits, reviews, exports honestly, and clears (22.831676ms)
-✔ Page / has complete markup and working local destinations (38.50434ms)
-✔ Page /about/ has complete markup and working local destinations (3.958525ms)
-✔ Page /services/ has complete markup and working local destinations (9.649264ms)
-✔ Page /projects/ has complete markup and working local destinations (4.529022ms)
-✔ Page /quote/ has complete markup and working local destinations (2.079648ms)
-✔ Page /contact/ has complete markup and working local destinations (2.066297ms)
-✔ Page /privacy/ has complete markup and working local destinations (3.041156ms)
-✔ Page /projects/quiet-majlis/ has complete markup and working local destinations (3.287714ms)
-✔ Page /projects/stone-villa/ has complete markup and working local destinations (4.082344ms)
-✔ Page /projects/warm-lounge/ has complete markup and working local destinations (2.484524ms)
-✔ Page /projects/crafted-wall/ has complete markup and working local destinations (8.178737ms)
-✔ Page /services/complete-fitout/ has complete markup and working local destinations (2.803758ms)
-✔ Page /services/majlis/ has complete markup and working local destinations (3.240973ms)
-✔ Page /services/ceilings-lighting/ has complete markup and working local destinations (4.30073ms)
-✔ Page /services/wall-finishes/ has complete markup and working local destinations (4.754066ms)
-✔ Page /services/stone-flooring/ has complete markup and working local destinations (3.912704ms)
-✔ Page /services/paint-wallpaper/ has complete markup and working local destinations (2.965687ms)
-✔ Page /services/living-spaces/ has complete markup and working local destinations (3.488316ms)
-✔ Configured collection IDs are unique and service examples resolve (0.489866ms)
-✔ Content escaping prevents markup injection in project fields (2.744555ms)
-✔ No analytics, remote image dependencies or personal-data persistence (1.542848ms)
-✔ Image delivery budget: 1200px hero under 300 KB and all responsive variants present (2.248431ms)
-ℹ tests 44
-ℹ suites 0
-ℹ pass 44
-ℹ fail 0
-ℹ cancelled 0
-ℹ skipped 0
-ℹ todo 0
-ℹ duration_ms 4371.359351
+TAP version 13
+# Subtest: Arabic and Persian numerals normalize accurately
+ok 1 - Arabic and Persian numerals normalize accurately
+  ---
+  duration_ms: 1.764978
+  type: 'test'
+  ...
+# Subtest: Saudi phone formats and Arabic numerals accepted
+ok 2 - Saudi phone formats and Arabic numerals accepted
+  ---
+  duration_ms: 0.692896
+  type: 'test'
+  ...
+# Subtest: Incorrect phone lengths, prefixes and injection rejected
+ok 3 - Incorrect phone lengths, prefixes and injection rejected
+  ---
+  duration_ms: 0.31529
+  type: 'test'
+  ...
+# Subtest: Complete quote passes step 0
+ok 4 - Complete quote passes step 0
+  ---
+  duration_ms: 2.005941
+  type: 'test'
+  ...
+# Subtest: Complete quote passes step 1
+ok 5 - Complete quote passes step 1
+  ---
+  duration_ms: 0.284301
+  type: 'test'
+  ...
+# Subtest: Complete quote passes step 2
+ok 6 - Complete quote passes step 2
+  ---
+  duration_ms: 0.213457
+  type: 'test'
+  ...
+# Subtest: Service and property must belong to configured options
+ok 7 - Service and property must belong to configured options
+  ---
+  duration_ms: 0.336269
+  type: 'test'
+  ...
+# Subtest: Unknown city can be entered without forcing sample service areas
+ok 8 - Unknown city can be entered without forcing sample service areas
+  ---
+  duration_ms: 0.177188
+  type: 'test'
+  ...
+# Subtest: Invalid area boundaries, infinity and missing input rejected
+ok 9 - Invalid area boundaries, infinity and missing input rejected
+  ---
+  duration_ms: 0.568652
+  type: 'test'
+  ...
+# Subtest: Decimal, Arabic area and boundary 100000 accepted
+ok 10 - Decimal, Arabic area and boundary 100000 accepted
+  ---
+  duration_ms: 0.542792
+  type: 'test'
+  ...
+# Subtest: Consent, email and short descriptions have independent errors
+ok 11 - Consent, email and short descriptions have independent errors
+  ---
+  duration_ms: 0.399898
+  type: 'test'
+  ...
+# Subtest: Optional email and budget are not required
+ok 12 - Optional email and budget are not required
+  ---
+  duration_ms: 0.181434
+  type: 'test'
+  ...
+# Subtest: Attachment limits enforce count, MIME, suffix and total size
+ok 13 - Attachment limits enforce count, MIME, suffix and total size
+  ---
+  duration_ms: 0.515465
+  type: 'test'
+  ...
+# Subtest: WhatsApp is unavailable until configured correctly
+ok 14 - WhatsApp is unavailable until configured correctly
+  ---
+  duration_ms: 0.283595
+  type: 'test'
+  ...
+# Subtest: Quote export discloses sending limits and attachment filenames
+ok 15 - Quote export discloses sending limits and attachment filenames
+  ---
+  duration_ms: 0.241239
+  type: 'test'
+  ...
+# Subtest: ZIP exports real attachment bytes, valid CRC and Arabic filenames
+ok 16 - ZIP exports real attachment bytes, valid CRC and Arabic filenames
+  ---
+  duration_ms: 65.837941
+  type: 'test'
+  ...
+# node:internal/modules/package_json_reader:314
+#   throw new ERR_MODULE_NOT_FOUND(packageName, fileURLToPath(base), null);
+#         ^
+# Error [ERR_MODULE_NOT_FOUND]: Cannot find package 'linkedom' imported from /home/claude/src/riwaq-studio/tests/interactions.test.mjs
+#     at Object.getPackageJSONURL (node:internal/modules/package_json_reader:314:9)
+#     at packageResolve (node:internal/modules/esm/resolve:767:81)
+#     at moduleResolve (node:internal/modules/esm/resolve:853:18)
+#     at defaultResolve (node:internal/modules/esm/resolve:983:11)
+#     at \#cachedDefaultResolve (node:internal/modules/esm/loader:731:20)
+#     at ModuleLoader.resolve (node:internal/modules/esm/loader:708:38)
+#     at ModuleLoader.getModuleJobForImport (node:internal/modules/esm/loader:310:38)
+#     at ModuleJob._link (node:internal/modules/esm/module_job:182:49) {
+#   code: 'ERR_MODULE_NOT_FOUND'
+# }
+# Node.js v22.22.0
+# Subtest: tests/interactions.test.mjs
+not ok 2 - tests/interactions.test.mjs
+  ---
+  duration_ms: 61.874727
+  type: 'test'
+  location: '/home/claude/src/riwaq-studio/tests/interactions.test.mjs:1:1'
+  failureType: 'testCodeFailure'
+  exitCode: 1
+  signal: ~
+  error: 'test failed'
+  code: 'ERR_TEST_FAILURE'
+  ...
+# Subtest: Page / has complete markup and working local destinations
+ok 18 - Page / has complete markup and working local destinations
+  ---
+  duration_ms: 17.857235
+  type: 'test'
+  ...
+# Subtest: Page /about/ has complete markup and working local destinations
+ok 19 - Page /about/ has complete markup and working local destinations
+  ---
+  duration_ms: 4.918966
+  type: 'test'
+  ...
+# Subtest: Page /services/ has complete markup and working local destinations
+ok 20 - Page /services/ has complete markup and working local destinations
+  ---
+  duration_ms: 5.224689
+  type: 'test'
+  ...
+# Subtest: Page /projects/ has complete markup and working local destinations
+ok 21 - Page /projects/ has complete markup and working local destinations
+  ---
+  duration_ms: 6.896007
+  type: 'test'
+  ...
+# Subtest: Page /quote/ has complete markup and working local destinations
+ok 22 - Page /quote/ has complete markup and working local destinations
+  ---
+  duration_ms: 10.793895
+  type: 'test'
+  ...
+# Subtest: Page /contact/ has complete markup and working local destinations
+ok 23 - Page /contact/ has complete markup and working local destinations
+  ---
+  duration_ms: 2.724976
+  type: 'test'
+  ...
+# Subtest: Page /privacy/ has complete markup and working local destinations
+ok 24 - Page /privacy/ has complete markup and working local destinations
+  ---
+  duration_ms: 6.591997
+  type: 'test'
+  ...
+# Subtest: Page /projects/quiet-majlis/ has complete markup and working local destinations
+ok 25 - Page /projects/quiet-majlis/ has complete markup and working local destinations
+  ---
+  duration_ms: 5.517046
+  type: 'test'
+  ...
+# Subtest: Page /projects/stone-villa/ has complete markup and working local destinations
+ok 26 - Page /projects/stone-villa/ has complete markup and working local destinations
+  ---
+  duration_ms: 5.106483
+  type: 'test'
+  ...
+# Subtest: Page /projects/warm-lounge/ has complete markup and working local destinations
+ok 27 - Page /projects/warm-lounge/ has complete markup and working local destinations
+  ---
+  duration_ms: 9.641217
+  type: 'test'
+  ...
+# Subtest: Page /projects/crafted-wall/ has complete markup and working local destinations
+ok 28 - Page /projects/crafted-wall/ has complete markup and working local destinations
+  ---
+  duration_ms: 2.903596
+  type: 'test'
+  ...
+# Subtest: Page /services/complete-fitout/ has complete markup and working local destinations
+ok 29 - Page /services/complete-fitout/ has complete markup and working local destinations
+  ---
+  duration_ms: 2.292124
+  type: 'test'
+  ...
+# Subtest: Page /services/majlis/ has complete markup and working local destinations
+ok 30 - Page /services/majlis/ has complete markup and working local destinations
+  ---
+  duration_ms: 3.18272
+  type: 'test'
+  ...
+# Subtest: Page /services/ceilings-lighting/ has complete markup and working local destinations
+ok 31 - Page /services/ceilings-lighting/ has complete markup and working local destinations
+  ---
+  duration_ms: 2.204467
+  type: 'test'
+  ...
+# Subtest: Page /services/wall-finishes/ has complete markup and working local destinations
+ok 32 - Page /services/wall-finishes/ has complete markup and working local destinations
+  ---
+  duration_ms: 2.085453
+  type: 'test'
+  ...
+# Subtest: Page /services/stone-flooring/ has complete markup and working local destinations
+ok 33 - Page /services/stone-flooring/ has complete markup and working local destinations
+  ---
+  duration_ms: 5.54013
+  type: 'test'
+  ...
+# Subtest: Page /services/paint-wallpaper/ has complete markup and working local destinations
+ok 34 - Page /services/paint-wallpaper/ has complete markup and working local destinations
+  ---
+  duration_ms: 1.967601
+  type: 'test'
+  ...
+# Subtest: Page /services/living-spaces/ has complete markup and working local destinations
+ok 35 - Page /services/living-spaces/ has complete markup and working local destinations
+  ---
+  duration_ms: 1.797746
+  type: 'test'
+  ...
+# Subtest: Configured collection IDs are unique and service examples resolve
+ok 36 - Configured collection IDs are unique and service examples resolve
+  ---
+  duration_ms: 0.313629
+  type: 'test'
+  ...
+# Subtest: Content escaping prevents markup injection in project fields
+ok 37 - Content escaping prevents markup injection in project fields
+  ---
+  duration_ms: 0.865822
+  type: 'test'
+  ...
+# Subtest: No analytics, remote image dependencies or personal-data persistence
+ok 38 - No analytics, remote image dependencies or personal-data persistence
+  ---
+  duration_ms: 3.094402
+  type: 'test'
+  ...
+# Subtest: Image delivery budget: 1200px hero under 300 KB and all responsive variants present
+ok 39 - Image delivery budget: 1200px hero under 300 KB and all responsive variants present
+  ---
+  duration_ms: 1.641019
+  type: 'test'
+  ...
+1..39
+# tests 39
+# suites 0
+# pass 38
+# fail 1
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 448.871825
+
+--- Chromium browser checks ---
+PASS | menu opens | 
+PASS | menu aria-expanded | 
+PASS | body locked when open | hidden
+PASS | focus moves into menu | 
+PASS | menu fits viewport | {"x":0,"y":74,"width":390,"height":547.5}
+PASS | Escape closes menu | 
+PASS | focus returns to toggle | 
+PASS | menu link navigates | 
+PASS | filter مجالس | visible=1 count=1 تصورات
+PASS | filter فلل | visible=1 count=1 تصورات
+PASS | filter صالات | visible=1 count=1 تصورات
+PASS | filter ديكورات جدارية | visible=1 count=1 تصورات
+PASS | filter الكل | visible=4 count=4 تصورات
+PASS | material tab click | 
+PASS | material ArrowLeft → next (RTL) | 
+PASS | material End | 
+PASS | compare keyboard changes value | value=60
+PASS | compare drag updates split | value=20 split=20%
+PASS | compare line follows pointer | lineX=334 pointer=334
+PASS | compare responds to tap on mobile | value=81
+PASS | compare line at tap (mobile) | lineX=303 tap=299
+PASS | 390 dialog opens | 
+PASS | 390 dialog counter | 
+PASS | 390 counter reads left-to-right | 
+PASS | 390 crop zooms toward its own side | right center
+PASS | 390 dialog within viewport | {"x":0,"y":97.296875,"width":390,"height":649.390625}
+PASS | 390 next wraps | 
+PASS | 390 ArrowRight = previous (RTL) | 
+PASS | touch swipe changes image | 1 / 3
+PASS | 390 Esc closes dialog | 
+PASS | 390 scroll unlocked | 
+PASS | 390 focus returned to opener | 
+PASS | 390 backdrop click closes | 
+PASS | 1440 dialog opens | 
+PASS | 1440 dialog counter | 
+PASS | 1440 counter reads left-to-right | 
+PASS | 1440 crop zooms toward its own side | right center
+PASS | 1440 dialog within viewport | {"x":20,"y":48.5,"width":1400,"height":803}
+PASS | 1440 next wraps | 
+PASS | 1440 ArrowRight = previous (RTL) | 
+PASS | 1440 Esc closes dialog | 
+PASS | 1440 scroll unlocked | 
+PASS | 1440 focus returned to opener | 
+PASS | 1440 backdrop click closes | 
+PASS | service preset from URL | 
+PASS | empty step shows errors | 
+PASS | step 2 reached | 
+PASS | step heading not hidden under sticky header | h2.y=147 header bottom=75
+PASS | rejects bad file type | 
+PASS | accepts 2 files | 
+PASS | invalid phone rejected | 
+PASS | consent required | 
+PASS | back keeps step-2 data | 
+PASS | forward keeps step-3 data | 
+PASS | review step | 
+PASS | output shown | 
+PASS | output heading visible below sticky header | h2.y=147
+PASS | focus on output heading | 
+PASS | output text has data | 
+PASS | whatsapp hidden (not configured) | 
+PASS | copy to clipboard | نُسخت تفاصيل الطلب إلى الحافظة. لم تُرسل.
+PASS | focus returns to download button | 
+PASS | ZIP valid with 3 entries | None | [('request.txt', 603, (2026, 10, 13, 9, 10, 20)), ('attachments/1-صورة-المجلس.jpg', 14, (2026, 10, 13, 9, 10, 20)), ('attachments/2-plan.pdf', 15, (2026, 10, 13, 9, 10, 20))] | طلب تسعيرة — رِواق | الخدمة: المجالس السعو | 
+PASS | clear resets to step 1 | 
+PASS | 404 status + page | 
+PASS | skip link is first & visible on focus | {"cls":"skip","vis":true,"outline":"solid"}
+PASS | focus ring visible on brand link | solid 2px none
+JS errors: none
+67/67 passed

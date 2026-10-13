@@ -8,3 +8,7 @@
 .brand-custom-logo{width:40px;height:46px;object-fit:contain}.editorial-grid.filtered{grid-template-columns:minmax(0,850px)}.editorial-grid.filtered .project-card{margin-top:0}.gallery-open{min-width:0}.dialog-image-wrap{touch-action:pan-y}.field select{max-width:100%}.property-field legend{font-size:14px;margin-bottom:12px}
 @view-transition{navigation:auto}::view-transition-old(root),::view-transition-new(root){animation-duration:.22s}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation:none!important;transition:none!important}.js-motion .reveal[data-pending=true]{opacity:1;transform:none}::view-transition-old(root),::view-transition-new(root){animation:none!important}}
+
+/* Reserve space for the client-rendered first quote step so the footer does not jump (CLS). */
+#quote-fields:empty{min-height:500px}
+@media(max-width:650px){#quote-fields:empty{min-height:470px}}

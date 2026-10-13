@@ -8,12 +8,19 @@
 
 ```bash
 npm ci
-npm run build
-npm test
-python3 -m http.server 8080 --directory dist
+npm run build          # يولّد dist من src وpublic (بناء نظيف)
+npm test               # اختبارات المنطق والصفحات وDOM المحاكاة
+npm run serve          # خادم محلي يحاكي Cloudflare Pages (_headers و404) على http://localhost:8080
 ```
 
-افتح `http://localhost:8080`. فتح HTML مباشرة بـ`file://` لا يشغل الوحدات والمسارات المطلقة بشكل صحيح. استخدم خادمًا محليًا أو مضيف صفحات ثابتة. يوجد في `dist` نسخة مكتملة جاهزة للاستخدام حتى دون البناء.
+اختبارات المتصفح الحقيقي (Chromium) اختيارية وتحتاج تثبيت Playwright منفصلًا (`npm i --no-save playwright && npx playwright install chromium`)، ثم مع تشغيل `npm run serve`:
+
+```bash
+npm run test:browser   # 114 فحص عرض (6 مقاسات × 19 صفحة) + 67 فحص تفاعل، ولقطات في qa-shots/
+node tests/browser/perf.mjs http://localhost:8080   # قياس أداء مختبري تقريبي
+```
+
+فتح HTML مباشرة بـ`file://` لا يعمل؛ المسارات مطلقة وتحتاج خادمًا. النطاق النهائي يُضبط عند البناء: `SITE_ORIGIN=https://example.com npm run build`. خطوات الرفع وربط النطاق في `docs/DEPLOY.md`.
 
 ## الملفات
 
@@ -25,9 +32,12 @@ python3 -m http.server 8080 --directory dist
 | `src/app.js` | القائمة والفلترة والخامات والمقارنة والمعرض ومسار الطلب |
 | `src/quote-core.js` | تحقق المدخلات وإعداد النص وZIP ورابط واتساب |
 | `scripts/build.mjs` | إخراج الصفحات وSEO وملفات الاستضافة الثابتة |
-| `dist/` | الموقع الناتج، جاهز لخادم ثابت |
-| `source-assets/` | الصور المولدة الأصلية |
+| `public/assets/` | الصور WebP والخطوط WOFF الثابتة؛ تُنسخ إلى dist عند البناء |
+| `dist/` | الموقع الناتج (يُحذف ويُعاد توليده في كل بناء)، جاهز لخادم ثابت |
+| `scripts/serve.mjs` | خادم معاينة محلي يطبق `_headers` و`404.html` |
+| `source-assets/` | الصور المولدة الأصلية وملفات الخطوط TTF الأصلية (لا تُرفع) |
 | `tests/` | اختبارات المنطق والصفحات والتفاعلات في DOM محاكاة |
+| `tests/browser/` | فحوص Chromium الحقيقية: العرض والتفاعلات والأداء |
 | `docs/` | بحث المراجع، التخصيص، القيود، تراخيص الخطوط وسجل الاختبارات |
 
 ## الصفحات
@@ -44,6 +54,4 @@ python3 -m http.server 8080 --directory dist
 
 ## التحقق
 
-اقرأ `docs/QA.md` لنتائج الاختبار وحدودها. اختبارات DOM ليست اختبارات Chrome أو Safari، ولا دليلًا على تنسيق الشاشة أو عدم التمرير الأفقي. المراجعة البصرية الفعلية للصفحات وقياسات Core Web Vitals لم تُجر في هذه البيئة.
-
-اقرأ `docs/CUSTOMIZATION.md` قبل تخصيص النسخة لشركة فعلية، و`docs/RESEARCH.md` للبحث المرجعي.
+اقرأ `docs/QA.md` لما اختُبر فعليًا في Chromium وما لم يُختبر (Safari وأجهزة فعلية). اقرأ `docs/CUSTOMIZATION.md` قبل تخصيص النسخة لشركة فعلية، و`docs/DEPLOY.md` للاستضافة، و`docs/RESEARCH.md` للبحث المرجعي.
