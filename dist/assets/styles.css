@@ -35,3 +35,18 @@
  body:has(.mobile-cta) .toast{bottom:calc(72px + env(safe-area-inset-bottom,0px))}
  .faq summary{padding:22px 0;font-size:18px}
 }
+/* Client preview notice */
+.preview-banner{max-width:none;width:100%;margin:0;background:var(--bronze);color:#fff;font-size:13px;line-height:1.7;text-align:center;padding:9px var(--gutter)}
+/* Primary header action reads as a button */
+.header-quote{background:var(--charcoal);color:var(--ivory);border:1px solid var(--charcoal);padding:11px 20px;gap:16px;transition:background .25s,border-color .25s}
+.header-quote:hover{background:var(--bronze);border-color:var(--bronze)}
+.header-quote span{font-size:17px}
+/* Readability floor for small Arabic text (Latin letter-spaced labels stay decorative) */
+.eyebrow,.hero .eyebrow,.footer-grid .eyebrow,.contact-details .eyebrow,.project-caption .eyebrow{font-size:12px}
+.image-tag{font-size:11px}
+.caption,.quote-sidebar>.caption{font-size:13px}
+.hero-foot,.filter-count,.compare-label,.project-meta dt,.quote-progress li,.gallery-open>span,.review dt,.dialog-top p,.breadcrumb,.hero-aside .text-link{font-size:12px}
+.hero-aside p,.field-hint,.field-error,.file-list li,.choice,.material-tabs button,.filter,.toast,.project-meta dd{font-size:13px}
+.footer-grid p,.footer-grid a{font-size:14px}
+.footer-bottom{font-size:12px}
+@media(max-width:650px){.preview-banner{font-size:12px;text-align:start}.footer-grid p,.footer-grid a{font-size:13px}}

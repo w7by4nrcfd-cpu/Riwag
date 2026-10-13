@@ -28,6 +28,15 @@ jobs:
         env:
           BASE_PATH: /${{ github.event.repository.name }}
           SITE_ORIGIN: https://${{ github.repository_owner }}.github.io
+      - name: Build client previews (clients/<slug> -> /c/<slug>/)
+        run: |
+          for d in clients/*/; do
+            slug=$(basename "$d")
+            CLIENT=$slug OUT_DIR=dist-client BASE_PATH=/${{ github.event.repository.name }}/c/$slug npm run build
+            mkdir -p dist/c && rm -rf "dist/c/$slug" && mv dist-client "dist/c/$slug"
+          done
+        env:
+          SITE_ORIGIN: https://${{ github.repository_owner }}.github.io
       - uses: actions/upload-pages-artifact@v3
         with:
           path: dist
