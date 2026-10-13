@@ -102,6 +102,16 @@ for(const w of [390,1440]){const c=await ctxFor(w),p=await c.newPage();watch(p);
  await p.locator('#clear-request').click();ok('clear resets to step 1',(await p.locator('#quote-status').textContent()).includes('1')&&await p.locator('#service').inputValue()==='');
  await c.close();}
 
+// 5b. Mobile quick-action bar + FAQ
+{const c=await ctxFor(390),p=await c.newPage();watch(p);await p.goto(base+'/');const bar=p.locator('.mobile-cta');
+ ok('mobile CTA bar visible',await bar.isVisible());const bb=await bar.boundingBox();ok('mobile CTA pinned to bottom',bb&&Math.round(bb.y+bb.height)===844,JSON.stringify(bb));
+ await p.evaluate(()=>window.scrollTo({top:document.body.scrollHeight,behavior:'instant'}));await p.waitForTimeout(300);await p.screenshot({path:shots+'/cta-bottom-390.png'});const last=await p.locator('.footer-bottom').boundingBox();ok('CTA bar does not cover footer end',last.y+last.height<=bb.y+1,'footerBottom='+Math.round(last.y+last.height)+' bar='+Math.round(bb.y));
+ await p.locator('.menu-toggle').click();ok('CTA bar hidden while menu open',!(await bar.isVisible()));await p.keyboard.press('Escape');
+ const q=p.locator('.faq details').first();await q.locator('summary').scrollIntoViewIfNeeded();await q.locator('summary').click();ok('FAQ item opens',await q.evaluate(d=>d.open));await q.screenshot({path:shots+'/faq-390.png'});
+ await bar.locator('a').first().click();await p.waitForURL('**/quote/');ok('CTA bar opens quote page',p.url().includes('/quote/'));ok('no CTA bar on quote page',await p.locator('.mobile-cta').count()===0);
+ await c.close();
+ const d=await ctxFor(1440),p2=await d.newPage();await p2.goto(base+'/');ok('no CTA bar on desktop',!(await p2.locator('.mobile-cta').isVisible()));await d.close();}
+
 // 6. 404 status
 {const c=await ctxFor(1440),p=await c.newPage();const r=await p.goto(base+'/nope/');ok('404 status + page',r.status()===404&&(await p.locator('h1').textContent()).includes('لنعد'));await c.close();}
 

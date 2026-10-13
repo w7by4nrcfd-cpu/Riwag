@@ -12,6 +12,7 @@ if(site.origin&&!/^https:\/\/[a-z0-9.-]+(:\d+)?$/i.test(site.origin))throw new E
 // Optional sub-path hosting (e.g. GitHub Pages project site): BASE_PATH=/Riwag npm run build
 const base=(process.env.BASE_PATH||'').trim().replace(/\/+$/,'');
 if(base&&!/^\/[A-Za-z0-9._-]+(\/[A-Za-z0-9._-]+)*$/.test(base))throw new Error('BASE_PATH must look like /Riwag — got: '+base);
+site.base=base;
 const withBase=html=>base?html.replace(/\b(href|src|srcset)="\/(?!\/)/g,'$1="'+base+'/').replace(/, \/assets\//g,', '+base+'/assets/'):html;
 
 // Clean build: dist is generated output only. Static binaries (images, fonts) live in public/.
@@ -21,14 +22,14 @@ await mkdir(resolve(dist,'assets'),{recursive:true});
 
 const routes=[
  {path:'/',title:'مساحات تُشبهك',body:home()},
- {path:'/about/',title:'فلسفتنا',body:aboutPage()},
+ {path:'/about/',title:'فلسفتنا',image:'villa',body:aboutPage()},
  {path:'/projects/',title:'التصورات التصميمية',body:projectsPage()},
  {path:'/services/',title:'خدمات التصميم والتشطيبات',body:servicesPage()},
  {path:'/quote/',title:'طلب عرض سعر',body:quotePage()},
- {path:'/contact/',title:'تواصل معنا',body:contactPage()},
+ {path:'/contact/',title:'تواصل معنا',image:'lounge',body:contactPage()},
  {path:'/privacy/',title:'الخصوصية وآلية الطلب',body:privacyPage()},
- ...projects.map(p=>({path:'/projects/'+p.id+'/',title:p.name,description:p.subtitle+' — تصور تصميمي توضيحي مولد.',body:projectPage(p)})),
- ...services.map(s=>({path:'/services/'+s.id+'/',title:s.name,description:s.intro,body:servicePage(s)})),
+ ...projects.map(p=>({path:'/projects/'+p.id+'/',title:p.name,description:p.subtitle+' — تصور تصميمي توضيحي مولد.',image:p.image,body:projectPage(p)})),
+ ...services.map(s=>({path:'/services/'+s.id+'/',title:s.name,description:s.intro,image:s.image,body:servicePage(s)})),
 ];
 for(const route of routes){const dir=resolve(dist,'.'+route.path);await mkdir(dir,{recursive:true});await writeFile(resolve(dir,'index.html'),withBase(layout(route)));}
 await writeFile(resolve(dist,'404.html'),withBase(layout({path:'/404.html',title:'صفحة غير موجودة',body:notFoundPage()})));
