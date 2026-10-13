@@ -77,7 +77,7 @@ for(const w of [390,1440]){const c=await ctxFor(w),p=await c.newPage();watch(p);
  await p.screenshot({path:shots+'/quote-errors-390.png',fullPage:false});
  await p.locator('#service').selectOption('majlis');await p.locator('label.choice',{hasText:'مجلس'}).click();await p.locator('#city').fill('أبها');
  await p.locator('#quote-next').click();ok('step 2 reached',(await p.locator('#quote-status').textContent()).includes('2'));
- const hb=await p.locator('#quote-fields h2').boundingBox(),hdr=await p.locator('header.header').boundingBox();ok('step heading not hidden under sticky header',hb.y>=hdr.y+hdr.height-1,'h2.y='+Math.round(hb.y)+' header bottom='+Math.round(hdr.y+hdr.height));
+ await p.waitForTimeout(900);const hb=await p.locator('#quote-fields h2').boundingBox(),hdr=await p.locator('header.header').boundingBox();ok('step heading not hidden under sticky header',hb.y>=hdr.y+hdr.height-1,'h2.y='+Math.round(hb.y)+' header bottom='+Math.round(hdr.y+hdr.height));
  await p.locator('#area').fill('١٢٠');await p.locator('#description').fill('أرغب بتجهيز مجلس رجال مع إضاءة مخفية وجلسات أرضية.');
  await p.locator('#files').setInputFiles([{name:'tool.exe',mimeType:'application/x-msdownload',buffer:Buffer.from('MZ')}]);ok('rejects bad file type',(await p.locator('#error-files').textContent()).length>0);
  await p.locator('#files').setInputFiles([{name:'صورة-المجلس.jpg',mimeType:'image/jpeg',buffer:Buffer.from([0xff,0xd8,0xff,0xe0,0,16,0x4a,0x46,0x49,0x46,0,1,0xff,0xd9])},{name:'plan.pdf',mimeType:'application/pdf',buffer:Buffer.from('%PDF-1.4\n%%EOF\n')}]);ok('accepts 2 files',await p.locator('#file-list li').count()===2);
