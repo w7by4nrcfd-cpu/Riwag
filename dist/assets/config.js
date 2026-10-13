@@ -11,6 +11,9 @@ export const site = {
   phone: null, email: null, address: 'المملكة العربية السعودية — عنوان تجريبي', city: 'الرياض', hours: 'تُحدد أوقات العمل عند تخصيص الموقع' },
   serviceAreas: ['الرياض', 'جدة', 'الدمام', 'الخبر', 'أبها'],
   social: [],
+  // Optional, real data only — sections stay hidden while empty.
+  mapsUrl: null, // e.g. the company's Google Maps share link
+  testimonials: [], // {text:'…', name:'…', context:'فيلا — أبها'} with the client's permission
   theme: { charcoal: '#242622', ivory: '#f5f2eb', sand: '#d7cbb9', bronze: '#80694e', stone: '#6b6b62' },
   nav: [['/', 'الرئيسية'], ['/projects/', 'المشاريع'], ['/services/', 'الخدمات'], ['/about/', 'من نحن'], ['/contact/', 'تواصل معنا']],
 };

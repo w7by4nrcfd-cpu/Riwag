@@ -11,12 +11,13 @@ let clientLogo=null;
 if(clientId){
  if(!/^[a-z0-9-]+$/.test(clientId))throw new Error('CLIENT must be a folder name like al-itqan');
  const dir=resolve(root,'clients',clientId),c=JSON.parse(await readFile(resolve(dir,'client.json'),'utf8'));
- for(const key of ['name','englishName','descriptor','title','description','serviceAreas','social'])if(c[key]!==undefined)site[key]=c[key];
+ for(const key of ['name','englishName','descriptor','title','description','serviceAreas','social','mapsUrl','testimonials'])if(c[key]!==undefined)site[key]=c[key];
  site.theme={...site.theme,...(c.theme||{})};site.contact={...site.contact,...(c.contact||{})};
  if(c.contact?.whatsapp&&!/^9665\d{8}$/.test(c.contact.whatsapp))throw new Error('client whatsapp must look like 9665XXXXXXXX');
  for(const key of ['charcoal','ivory','sand','bronze','stone'])if(!/^#[0-9a-f]{6}$/i.test(site.theme[key]))throw new Error('theme.'+key+' must be a #rrggbb color');
  const logo=(await readdir(dir)).find(f=>/^logo\.(svg|png|webp|jpg)$/i.test(f));
  if(logo){clientLogo=[resolve(dir,logo),'client-'+logo.toLowerCase()];site.logo='/assets/'+clientLogo[1];}
+ if(c.mapsUrl&&!/^https:\/\//.test(c.mapsUrl))throw new Error('mapsUrl must be an https link');
  site.title=c.title||site.name+' — '+(site.descriptor||'');
  site.clientPreview=true;
 }

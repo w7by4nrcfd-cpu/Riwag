@@ -92,7 +92,7 @@ for(const w of [390,1440]){const c=await ctxFor(w),p=await c.newPage();watch(p);
  await p.screenshot({path:shots+'/quote-review-390.png',fullPage:true});
  await p.locator('#quote-next').click();ok('output shown',await p.locator('#quote-output').isVisible());
  await p.waitForTimeout(900);const oh=await p.locator('#quote-output h2').boundingBox(),hh=await p.locator('header.header').boundingBox();ok('output heading visible below sticky header',oh.y>=hh.y+hh.height&&oh.y<600,'h2.y='+Math.round(oh.y));ok('focus on output heading',await p.evaluate(()=>document.activeElement.matches('#quote-output h2')));
- const text=await p.locator('#request-text').inputValue();ok('output text has data',text.includes('أبها')&&text.includes('120')&&text.includes('0512345678')&&text.includes('plan.pdf'));
+ const text=await p.locator('#request-text').inputValue();ok('output text has data',text.includes('أبها')&&text.includes('120')&&text.includes('0512345678')&&text.includes('المصدر: طلب من موقع')&&text.includes('plan.pdf'));
  {const wa=p.locator('#whatsapp-request'),cfg=await p.evaluate(async()=>(await import(new URL('assets/config.js',document.baseURI.replace(/quote\/.*$/,'')).href)).site.contact.whatsapp);if(cfg){const href=await wa.getAttribute('href');ok('whatsapp link carries the request',await wa.isVisible()&&href.startsWith('https://wa.me/'+cfg+'?text=')&&decodeURIComponent(href).includes('أبها'),href.slice(0,40));}else ok('whatsapp hidden (not configured)',!(await wa.isVisible()));}
  await p.locator('#copy-request').click();await p.waitForTimeout(300);const clip=await p.evaluate(()=>navigator.clipboard.readText());ok('copy to clipboard',clip===text,(await p.locator('#quote-action-status').textContent()));
  const [dl]=await Promise.all([p.waitForEvent('download'),p.locator('#download-request').click()]);await p.waitForTimeout(300);ok('focus returns to download button',await p.evaluate(()=>document.activeElement.id==='download-request'));const path=shots+'/quote.zip';await dl.saveAs(path);
@@ -111,6 +111,12 @@ for(const w of [390,1440]){const c=await ctxFor(w),p=await c.newPage();watch(p);
  await bar.locator('a').first().click();await p.waitForURL('**/quote/');ok('CTA bar opens quote page',p.url().includes('/quote/'));ok('no CTA bar on quote page',await p.locator('.mobile-cta').count()===0);
  await c.close();
  const d=await ctxFor(1440),p2=await d.newPage();await p2.goto(base+'/');ok('no CTA bar on desktop',!(await p2.locator('.mobile-cta').isVisible()));await d.close();}
+
+// 5c. Quick WhatsApp from service and project pages
+{const c=await ctxFor(390),p=await c.newPage();watch(p);const cfg=await (async()=>{await p.goto(base+'/');return p.evaluate(async()=>(await import(new URL('assets/config.js',document.baseURI).href)).site.contact.whatsapp);})();
+ if(cfg){await p.goto(base+'/services/majlis/');const a=p.locator('a',{hasText:'استفسار سريع عبر واتساب'});const h=await a.getAttribute('href');ok('service page quick WhatsApp names the service',await a.isVisible()&&decodeURIComponent(h).includes('المجالس السعودية'),decodeURIComponent(h).slice(0,70));
+ await p.goto(base+'/projects/stone-villa/');const b2=p.locator('a',{hasText:'أرسل الفكرة عبر واتساب'});ok('project page WhatsApp names the project',decodeURIComponent(await b2.getAttribute('href')).includes('بيت الحجر والضوء'));await p.locator('.similar').screenshot({path:shots+'/similar-390.png'});}
+ await c.close();}
 
 // 6. 404 status
 {const c=await ctxFor(1440),p=await c.newPage();const r=await p.goto(base+'/nope/');ok('404 status + page',r.status()===404&&(await p.locator('h1').textContent()).includes('لنعد'));await c.close();}
