@@ -1,0 +1,74 @@
+[
+  {
+    "path": "/",
+    "title": "مساحات تُشبهك"
+  },
+  {
+    "path": "/about/",
+    "title": "فلسفتنا"
+  },
+  {
+    "path": "/projects/",
+    "title": "التصورات التصميمية"
+  },
+  {
+    "path": "/services/",
+    "title": "خدمات التصميم والتشطيبات"
+  },
+  {
+    "path": "/quote/",
+    "title": "طلب عرض سعر"
+  },
+  {
+    "path": "/contact/",
+    "title": "تواصل معنا"
+  },
+  {
+    "path": "/privacy/",
+    "title": "الخصوصية وآلية الطلب"
+  },
+  {
+    "path": "/projects/quiet-majlis/",
+    "title": "مجلس السكينة"
+  },
+  {
+    "path": "/projects/stone-villa/",
+    "title": "بيت الحجر والضوء"
+  },
+  {
+    "path": "/projects/warm-lounge/",
+    "title": "صالون الدفء"
+  },
+  {
+    "path": "/projects/crafted-wall/",
+    "title": "إيقاع الخامة"
+  },
+  {
+    "path": "/services/complete-fitout/",
+    "title": "التصميم والتنفيذ المتكامل"
+  },
+  {
+    "path": "/services/majlis/",
+    "title": "المجالس السعودية"
+  },
+  {
+    "path": "/services/ceilings-lighting/",
+    "title": "الجبس والإضاءة المخفية"
+  },
+  {
+    "path": "/services/wall-finishes/",
+    "title": "البانلات وبديل الخشب"
+  },
+  {
+    "path": "/services/stone-flooring/",
+    "title": "بديل الرخام والأرضيات"
+  },
+  {
+    "path": "/services/paint-wallpaper/",
+    "title": "الدهانات وورق الجدران"
+  },
+  {
+    "path": "/services/living-spaces/",
+    "title": "تجهيز الصالات والمجالس"
+  }
+]

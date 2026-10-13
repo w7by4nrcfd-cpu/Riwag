@@ -1,0 +1,57 @@
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+> interior-fitout-starter@1.0.0 test
+> node --test tests/*.test.mjs
+
+✔ Arabic and Persian numerals normalize accurately (1.724937ms)
+✔ Saudi phone formats and Arabic numerals accepted (0.398597ms)
+✔ Incorrect phone lengths, prefixes and injection rejected (0.140091ms)
+✔ Complete quote passes step 0 (0.938324ms)
+✔ Complete quote passes step 1 (0.17457ms)
+✔ Complete quote passes step 2 (0.174149ms)
+✔ Service and property must belong to configured options (0.203268ms)
+✔ Unknown city can be entered without forcing sample service areas (0.190378ms)
+✔ Invalid area boundaries, infinity and missing input rejected (0.234978ms)
+✔ Decimal, Arabic area and boundary 100000 accepted (0.347584ms)
+✔ Consent, email and short descriptions have independent errors (0.272842ms)
+✔ Optional email and budget are not required (0.115798ms)
+✔ Attachment limits enforce count, MIME, suffix and total size (0.343811ms)
+✔ WhatsApp is unavailable until configured correctly (0.167475ms)
+✔ Quote export discloses sending limits and attachment filenames (0.212067ms)
+✔ ZIP exports real attachment bytes, valid CRC and Arabic filenames (88.753751ms)
+✔ Project categories update actual DOM visibility and button state (29.323001ms)
+✔ Mobile navigation opens, closes with Escape and resets on desktop resize (9.228654ms)
+✔ Material tabs change panel content and support RTL arrow keys (11.342246ms)
+✔ Before-after range updates clip position and accessible value (17.288292ms)
+✔ Project lightbox cycles correctly and closes without leaving scroll locked (8.403938ms)
+✔ Wizard rejects empty data, preserves edits, reviews, exports honestly, and clears (22.831676ms)
+✔ Page / has complete markup and working local destinations (38.50434ms)
+✔ Page /about/ has complete markup and working local destinations (3.958525ms)
+✔ Page /services/ has complete markup and working local destinations (9.649264ms)
+✔ Page /projects/ has complete markup and working local destinations (4.529022ms)
+✔ Page /quote/ has complete markup and working local destinations (2.079648ms)
+✔ Page /contact/ has complete markup and working local destinations (2.066297ms)
+✔ Page /privacy/ has complete markup and working local destinations (3.041156ms)
+✔ Page /projects/quiet-majlis/ has complete markup and working local destinations (3.287714ms)
+✔ Page /projects/stone-villa/ has complete markup and working local destinations (4.082344ms)
+✔ Page /projects/warm-lounge/ has complete markup and working local destinations (2.484524ms)
+✔ Page /projects/crafted-wall/ has complete markup and working local destinations (8.178737ms)
+✔ Page /services/complete-fitout/ has complete markup and working local destinations (2.803758ms)
+✔ Page /services/majlis/ has complete markup and working local destinations (3.240973ms)
+✔ Page /services/ceilings-lighting/ has complete markup and working local destinations (4.30073ms)
+✔ Page /services/wall-finishes/ has complete markup and working local destinations (4.754066ms)
+✔ Page /services/stone-flooring/ has complete markup and working local destinations (3.912704ms)
+✔ Page /services/paint-wallpaper/ has complete markup and working local destinations (2.965687ms)
+✔ Page /services/living-spaces/ has complete markup and working local destinations (3.488316ms)
+✔ Configured collection IDs are unique and service examples resolve (0.489866ms)
+✔ Content escaping prevents markup injection in project fields (2.744555ms)
+✔ No analytics, remote image dependencies or personal-data persistence (1.542848ms)
+✔ Image delivery budget: 1200px hero under 300 KB and all responsive variants present (2.248431ms)
+ℹ tests 44
+ℹ suites 0
+ℹ pass 44
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 4371.359351

@@ -1,0 +1,16 @@
+import {mkdir,writeFile,copyFile,readFile} from 'node:fs/promises';
+import {resolve} from 'node:path';
+import {site,projects,services} from '../src/config.js';
+import {layout,home,projectsPage,projectPage,servicesPage,servicePage,aboutPage,quotePage,contactPage,privacyPage,notFoundPage} from '../src/views.js';
+const root=resolve(import.meta.dirname,'..'),dist=resolve(root,'dist');await mkdir(resolve(dist,'assets'),{recursive:true});
+const routes=[{path:'/',title:'مساحات تُشبهك',body:home()},{path:'/about/',title:'فلسفتنا',body:aboutPage()},{path:'/projects/',title:'التصورات التصميمية',body:projectsPage()},{path:'/services/',title:'خدمات التصميم والتشطيبات',body:servicesPage()},{path:'/quote/',title:'طلب عرض سعر',body:quotePage()},{path:'/contact/',title:'تواصل معنا',body:contactPage()},{path:'/privacy/',title:'الخصوصية وآلية الطلب',body:privacyPage()},...projects.map(p=>({path:'/projects/'+p.id+'/',title:p.name,description:p.subtitle+' — تصور تصميمي توضيحي مولد.',body:projectPage(p)})),...services.map(s=>({path:'/services/'+s.id+'/',title:s.name,description:s.intro,body:servicePage(s)}))];
+for(const route of routes){const dir=resolve(dist,'.'+route.path);await mkdir(dir,{recursive:true});await writeFile(resolve(dir,'index.html'),layout(route));}
+await writeFile(resolve(dist,'404.html'),layout({path:'/404.html',title:'صفحة غير موجودة',body:notFoundPage()}));
+for(const file of ['app.js','config.js','quote-core.js','styles.css','fonts.css'])await copyFile(resolve(root,'src',file),resolve(dist,'assets',file));
+await writeFile(resolve(dist,'assets/favicon.svg'),'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" fill="#242622"/><path d="M15 52V25a17 17 0 0 1 34 0v27M23 52V26a9 9 0 0 1 18 0v26M11 52h42" fill="none" stroke="#f5f2eb" stroke-width="2"/></svg>');
+await writeFile(resolve(dist,'robots.txt'),site.demo?'User-agent: *\nDisallow: /\n':'User-agent: *\nAllow: /\nSitemap: '+site.origin+'/sitemap.xml\n');
+await writeFile(resolve(dist,'sitemap.xml'),'<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'+routes.map(r=>'<url><loc>'+site.origin+r.path+'</loc></url>').join('')+'</urlset>');
+await writeFile(resolve(dist,'_headers'),'/*\n  X-Content-Type-Options: nosniff\n  Referrer-Policy: strict-origin-when-cross-origin\n  Permissions-Policy: camera=(), microphone=(), geolocation=()\n  Content-Security-Policy: default-src \'self\'; img-src \'self\' data:; font-src \'self\'; script-src \'self\'; style-src \'self\' \'unsafe-inline\'; connect-src \'self\'; object-src \'none\'; base-uri \'self\'; form-action \'self\'; frame-ancestors \'self\' https://chatgpt.com\n/assets/*\n  Cache-Control: public, max-age=3600\n');
+await writeFile(resolve(root,'docs/routes.json'),JSON.stringify(routes.map(r=>({path:r.path,title:r.title})),null,2));
+try {let manifest=JSON.parse(await readFile(resolve(root,'.openai/hosting.json'),'utf8'));manifest.static={directory:'dist'};manifest.d1=null;manifest.r2=null;await writeFile(resolve(root,'.openai/hosting.json'),JSON.stringify(manifest,null,2)+'\n');} catch(error) {if(error.code!=='ENOENT')throw error;}
+console.log('Built '+routes.length+' complete pages + custom 404.');
