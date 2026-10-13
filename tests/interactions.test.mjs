@@ -1,5 +1,5 @@
 import test from 'node:test';import assert from 'node:assert/strict';import {readFile} from 'node:fs/promises';import {parseHTML} from 'linkedom';
-import {services} from '../src/config.js';
+import {services,site} from '../src/config.js';
 let sequence=0;
 async function page(path){
  const html=await readFile(new URL('../dist/'+path,import.meta.url),'utf8');const {window}=parseHTML(html),{document}=window;
@@ -24,6 +24,6 @@ test('Wizard rejects empty data, preserves edits, reviews, exports honestly, and
  p.set('service',services[0].id);p.set('city','أبها');const radio=p.document.querySelector('[value="فيلا"]');radio.checked=true;p.submit();assert.ok(p.document.querySelector('#area'));
  p.set('area','١٢٠');p.set('description','أرغب في تشطيب مجلس سعودي بإضاءة مخفية.');p.submit();assert.ok(p.document.querySelector('#name'),p.document.querySelector('#quote-fields').textContent);
  p.set('name','عميل اختبار');p.set('phone','0500000000');p.document.querySelector('#consent').checked=true;p.submit();assert.match(p.document.querySelector('.review').textContent,/أبها/);assert.match(p.document.querySelector('.review').textContent,/عميل اختبار/);
- p.click('#quote-prev');assert.equal(p.document.querySelector('#name').value,'عميل اختبار');p.submit();p.submit();assert.equal(p.document.querySelector('#quote-output').hidden,false);assert.equal(p.document.querySelector('#quote-form').hidden,true);assert.match(p.document.querySelector('#request-text').value,/١٢٠|120/);assert.equal(p.document.querySelector('#whatsapp-request').hidden,true);assert.match(p.document.querySelector('#quote-action-status').textContent,/لم يُرسل/);
+ p.click('#quote-prev');assert.equal(p.document.querySelector('#name').value,'عميل اختبار');p.submit();p.submit();assert.equal(p.document.querySelector('#quote-output').hidden,false);assert.equal(p.document.querySelector('#quote-form').hidden,true);assert.match(p.document.querySelector('#request-text').value,/١٢٠|120/);assert.equal(p.document.querySelector('#whatsapp-request').hidden,!site.contact.whatsapp);assert.match(p.document.querySelector('#quote-action-status').textContent,/لم يُرسل/);
  p.click('#edit-request');assert.equal(p.document.querySelector('#quote-form').hidden,false);p.submit();p.click('#clear-request');assert.ok(p.document.querySelector('#service'));assert.equal(p.document.querySelector('#request-text').value,'');assert.equal(p.document.querySelector('#quote-output').hidden,true);
 });
